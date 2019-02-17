@@ -7,114 +7,142 @@
 body
     background: #1A252A
 
-
-h1
-    width: 220px
-    height: 59px
-    margin: 0 auto
-    margin-top: 40px
-    font-size: 48px
-    letter-spacing: 0.02em
-    color: rgba(#fff, 0.8)
-
-.password-field
-    width: 340px
-    height: 142px
-    margin: 0 auto
-    margin-top: 160px
-    margin-bottom: 30px
-    text-align: center
-    input
-        width: 100%
-        max-width: 360px
-        // min-width: 320px
-        height: 60px
-        background: rgba(#fff, 0.15)
-        border: 1px solid rgba(#fff, 0.3)
-        box-sizing: border-box
-        border-radius: 8px
-        font-size: 24px
-        letter-spacing: 0.1em
-        text-align: center
-        color: rgba(#fff, 0.6)
-        outline: 0
-        transition: border-color 100ms ease-in-out
-        &:hover
-            border-color: rgba(#fff, 0.6)
-    .slider
-        width: 100%
-        max-width: 280px
-        height: 7px
-        margin: 30px auto
-        margin-top: 34px
-        background: linear-gradient(180deg, #5ED015 0%, #B2FF59 100%)
-        border-radius: 50px
-    h3
-        font-size: 14px
-        color: rgba(#fff, 0.3)
-        letter-spacing: 0.1em
-        line-height: 14px
-
-.strength-slider-wrapper
-    width: 300px
-    height: 260px
-    // margin: 30px auto
-    justify-content: space-between
-    display: inline-flex
-    flex-flow: column
-    position: relative
-    left: 50%
-    bottom: -13px
-    transform: translateX(-50%) rotate(-90deg)
-
-
-
-    .strength-slider
-        height: 8px
-        border-radius: 50px
+    #wrapper
         position: relative
-        .fill
-            height: 8px
-            position: absolute
-            left: 0
-            z-index: 1
-            border-radius: 50px 0 0px 50px
+        h1
+            text-align: center
+            height: 59px
+            margin: 0 auto
+            margin-top: 40px
+            font-size: 48px
+            letter-spacing: 0.02em
+            color: rgba(#fff, 0.8)
 
-        &:nth-child(1) .fill
-            background: linear-gradient(-90deg, #2A36B1 0%, #455EDE 100%)
-            width: 40%
-        &:nth-child(2) .fill
-            background: linear-gradient(-90deg, #F50057 0%, #FF80AB 100%)
-            width: 60%
-        &:nth-child(3) .fill
-            background: linear-gradient(-90deg, #F5A503 0%, #FFD740 100%)
-            width: 20%
-        &:nth-child(4) .fill
-            background: linear-gradient(-90deg, #058ADB 0%, #40C4FF 100%)
-            width: 80%
-
-        input[type='range']
-            -webkit-appearance: none
-            width: 300px
-            border-radius: 8px
-            position: absolute
-            background: rgba(#fff,0.1)
-            &::-webkit-slider-runnable-track
+        .password-field
+            width: 340px
+            height: 142px
+            margin: 0 auto
+            margin-top: 100px
+            margin-bottom: 30px
+            text-align: center
+            input
                 width: 100%
-                height: 8px
-                border: none
+                max-width: 360px
+                // min-width: 320px
+                height: 60px
+                background: rgba(#fff, 0.15)
+                border: 1px solid rgba(#fff, 0.3)
+                box-sizing: border-box
                 border-radius: 8px
-            &::-webkit-slider-thumb
-                -webkit-appearance: none
-                border: none
-                width: 20px
-                height: 20px
-                background: #fff
-                border-radius: 50%
+                font-size: 24px
+                letter-spacing: 0.1em
+                text-align: center
+                color: rgba(#fff, 0.6)
+                outline: 0
+                transition: border-color 100ms ease-in-out
+                &:hover
+                    border-color: rgba(#fff, 0.6)
+            .slider, .slider-fill
+                width: 100%
+                max-width: 280px
+                height: 7px
+                margin: 30px auto
+                margin-top: 34px
+                background: rgba(#fff,0.1)
+                border-radius: 50px
+                .slider-fill
+                    margin: 0
+                    width: 40px
+                    background: linear-gradient(180deg, #5ED015 0%, #B2FF59 100%)
+
+            h3
+                font-size: 14px
+                color: rgba(#fff, 0.3)
+                letter-spacing: 0.1em
+                line-height: 14px
+
+        .input-wrapper
+            .strength-slider-wrapper
+                width: 300px
+                height: 260px
+                // margin: 30px auto
+                justify-content: space-between
+                display: inline-flex
+                flex-flow: column
                 position: relative
-                top: 50%
-                transform: translateY(-50%)
-                transition: all 0.2s ease-in-out
-                z-index: 2
-            &:focus
-                outline: none
+                left: 50%
+                bottom: -13px
+                transform: translateX(-50%) rotate(-90deg)
+
+                .strength-slider
+                    height: 8px
+                    border-radius: 50px
+                    position: relative
+                    .fill
+                        height: 8px
+                        position: absolute
+                        left: 0
+                        z-index: 1
+                        border-radius: 50px 0 0px 50px
+
+                    &:nth-child(1) .fill
+                        background: linear-gradient(-90deg, #2A36B1 0%, #455EDE 100%)
+                        // width: 40%
+                    &:nth-child(2) .fill
+                        background: linear-gradient(-90deg, #F50057 0%, #FF80AB 100%)
+                        // width: 60%
+                    &:nth-child(3) .fill
+                        background: linear-gradient(-90deg, #F5A503 0%, #FFD740 100%)
+                        // width: 20%
+                    &:nth-child(4) .fill
+                        background: linear-gradient(-90deg, #058ADB 0%, #40C4FF 100%)
+                        // width: 80%
+
+                    input[type='range']
+                        -webkit-appearance: none
+                        width: 300px
+                        border-radius: 8px
+                        position: absolute
+                        background: rgba(#fff,0.1)
+                        &::-webkit-slider-runnable-track
+                            width: 100%
+                            height: 8px
+                            border: none
+                            border-radius: 8px
+                        &::-webkit-slider-thumb
+                            -webkit-appearance: none
+                            border: none
+                            width: 20px
+                            height: 20px
+                            background: #fff
+                            border-radius: 50%
+                            position: relative
+                            top: 50%
+                            transform: translateY(-50%)
+                            transition: all 0.2s ease-in-out
+                            z-index: 2
+                        &:focus
+                            outline: none
+
+        .data-wrapper
+            left: 50%
+            position: relative
+            transform: translate(-50%)
+            display: inline-block
+            h2
+                font-size: 12px
+                color: rgba(#fff,.3)
+                display: inline-block
+                text-align: center
+                font-weight: bold
+                letter-spacing: 0.02em
+                line-height: 20px
+        svg
+            margin: 40px auto
+            fill: rgba(#fff,.3)
+            padding: 10px
+            border-radius: 50%
+            transition: background 152ms ease-in-out
+            display: block
+            &:hover
+                background: rgba(#fff,.1)

@@ -5,51 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project Strong | Alpha</title>
+    <title>Mima | Alpha</title>
     <link rel="stylesheet" href="styles/index.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue"></script>
 
 </head>
 
 <body>
-    <div class="wrapper">
-        <h1>Password</h1>
+    <div id="wrapper">
+        <h1>Mima</h1>
 
         <div class="password-field">
             <input type="text" name="" value="cRaa6t$+?-Ft32JA">
-            <div class="slider"> </div>
+            <div class="slider">
+                <div class="slider-fill" :style="{width: total + '%'}"></div>
+            </div>
             <h3 class="password-strength">STRONG PASSWORD</h3>
         </div>
 
-        <div class="strength-slider-wrapper">
-            <div class="strength-slider">
-                <div class="fill"></div>
-                <input type="range" value="40">
+        <div class="input-wrapper">
+            <div class="strength-slider-wrapper">
+                <div class="strength-slider" v-for="values in sliderValue">
+                    <div class="fill" :style="{width: values.val + '%'}"></div>
+                    <input type="range" min="0" max="100" v-model='values.val'>
+                </div>
             </div>
-            <div class="strength-slider">
-                <div class="fill"></div>
-                <input type="range" value="60">
-            </div>
-            <div class="strength-slider">
-                <div class="fill"></div>
-                <input type="range" value="20">
-            </div>
-            <div class="strength-slider">
-                <div class="fill"></div>
-                <input type="range" value="80">
+            <br><br><br><br>
+            <div class="data-wrapper">
+                <h2 v-for="values in sliderValue">{{values.name}} <br> {{values.val}}</h2>
             </div>
         </div>
-
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" /></svg>
+    </div>
     </div>
 </body>
+<script src="functions/index.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-    var sliderValue = $('input[type="range"]').attr(value);
-
-
-    console.log(sliderValue);
-</script>
 
 </html>
