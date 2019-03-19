@@ -3,21 +3,27 @@ new Vue({
     data: {
         sliderValue: [{
             val: 20,
-            name: 'Length'
+            name: 'Length',
         }, {
             val: 50,
-            name: 'Symbol'
+            name: 'Symbol',
         }, {
             val: 70,
-            name: 'Digit'
+            name: 'Digit',
         }, {
             val: 40,
-            name: 'Words'
-        }]
+            name: 'Words',
+        }],
     },
     computed: {
         total() {
-            return (this.sliderValue[3].val + this.sliderValue[1].val + this.sliderValue[2].val + this.sliderValue[3].val) / 4;
+            return ((parseInt(this.sliderValue[0].val) + parseInt(this.sliderValue[1].val) + parseInt(this.sliderValue[2].val) + parseInt(this.sliderValue[3].val)) / 4);
+        }
+    },
+    methods: {
+        copy() {
+            this.$refs.text.select();
+            document.execCommand('copy');
         }
     }
 })

@@ -3,6 +3,7 @@
     font-weight: bold
     margin: 0
     padding: 0
+    user-select: none
 
 body
     background: #1A252A
@@ -11,24 +12,22 @@ body
         position: relative
         h1
             text-align: center
-            height: 59px
             margin: 0 auto
-            margin-top: 40px
+            margin-top: 20px
             font-size: 48px
-            letter-spacing: 0.02em
+            letter-spacing: 0.08em
             color: rgba(#fff, 0.8)
 
         .password-field
             width: 340px
             height: 142px
             margin: 0 auto
-            margin-top: 100px
-            margin-bottom: 30px
+            margin-top: 40px
+            margin-bottom: 20px
             text-align: center
             input
                 width: 100%
                 max-width: 360px
-                // min-width: 320px
                 height: 60px
                 background: rgba(#fff, 0.15)
                 border: 1px solid rgba(#fff, 0.3)
@@ -39,21 +38,25 @@ body
                 text-align: center
                 color: rgba(#fff, 0.6)
                 outline: 0
+                user-select: initial
                 transition: border-color 100ms ease-in-out
                 &:hover
                     border-color: rgba(#fff, 0.6)
+                &::selection
+                    background: rgba(0, 0, 0, 0.1)
             .slider, .slider-fill
                 width: 100%
                 max-width: 280px
                 height: 7px
-                margin: 30px auto
-                margin-top: 34px
+                margin: 20px auto
+                margin-top: 24px
                 background: rgba(#fff,0.1)
-                border-radius: 50px
-                .slider-fill
-                    margin: 0
-                    width: 40px
-                    background: linear-gradient(180deg, #5ED015 0%, #B2FF59 100%)
+                border-radius: 7px
+            .slider-fill
+                margin: 0
+                width: 40px
+                background: linear-gradient(180deg, #5ED015 0%, #B2FF59 100%)
+                color: red
 
             h3
                 font-size: 14px
@@ -65,7 +68,6 @@ body
             .strength-slider-wrapper
                 width: 300px
                 height: 260px
-                // margin: 30px auto
                 justify-content: space-between
                 display: inline-flex
                 flex-flow: column
@@ -83,7 +85,7 @@ body
                         position: absolute
                         left: 0
                         z-index: 1
-                        border-radius: 50px 0 0px 50px
+                        border-radius: 50px
 
                     &:nth-child(1) .fill
                         background: linear-gradient(-90deg, #2A36B1 0%, #455EDE 100%)
@@ -130,22 +132,26 @@ body
             transform: translate(-50%)
             display: inline-flex
             justify-content: space-between
-            width: 310px
+            width: 314px
+
             h2
-                font-size: 12px
+                font-size: 13px
                 color: rgba(#fff,.3)
                 display: inline-block
                 text-align: center
                 font-weight: bold
-                letter-spacing: 0.02em
+                letter-spacing: 0.05em
                 line-height: 20px
                 width: 60px
         svg
-            margin: 40px auto
+            margin: 20px auto
             fill: rgba(#fff,.3)
             padding: 10px
             border-radius: 50%
-            transition: background 152ms ease-in-out
+            transition: background 152ms ease-in-out, transform 180ms ease
             display: block
             &:hover
                 background: rgba(#fff,.1)
+                transform: scale(1.2)
+            &:active
+                transform: scale(1)
