@@ -1,0 +1,14 @@
+{
+  "name": "Mima | Strong Passwords",
+  "short_name": "Mima",
+  "icons": [{
+      "src": "../assets/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+}],
+  "start_url": "../index.html?homescreen=1",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1A252A",
+  "theme_color": "#1A252A"
+}
