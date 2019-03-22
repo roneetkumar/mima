@@ -34,7 +34,6 @@ new Vue({
                 symbols: 0
             };
 
-
             var weight = {
                 excess: 3,
                 upperCase: 4,
@@ -49,7 +48,6 @@ new Vue({
                 text: '',
                 score: 0
             };
-
 
             var baseScore = 30;
 
@@ -127,7 +125,6 @@ new Vue({
     methods: {
 
         copyToClipboard() {
-            // we should create a textarea, put the password inside it, select it and finally copy it
             var copyElement = document.createElement("textarea");
             copyElement.style.opacity = '0';
             copyElement.style.position = 'fixed';
@@ -139,7 +136,6 @@ new Vue({
             body.removeChild(copyElement);
 
             this.copied = true;
-            // reset this.copied
             setTimeout(() => {
                 this.copied = false;
             }, 750);
@@ -154,9 +150,7 @@ new Vue({
             var digitsPositionArray = [];
 
 
-            // first, fill the password array with letters, uppercase and lowecase
             for (var i = 0; i < this.settings.length; i++) {
-                // get an array for all indexes of the password array
                 digitsPositionArray.push(i);
 
                 var upperCase = Math.round(Math.random() * 1);
@@ -167,15 +161,11 @@ new Vue({
                 }
             }
 
-            // Add digits to password
             for (i = 0; i < this.settings.digits; i++) {
                 digit = Math.round(Math.random() * 9);
                 numberIndex = digitsPositionArray[Math.floor(Math.random() * digitsPositionArray.length)];
 
                 passwordArray[numberIndex] = digit;
-
-                /* remove position from digitsPositionArray so we make sure to the have the exact number of digits in our password
-                since without this step, numbers may override other numbers */
 
                 var j = digitsPositionArray.indexOf(numberIndex);
                 if (i != -1) {
@@ -183,15 +173,11 @@ new Vue({
                 }
             }
 
-            // add special charachters "symbols"
             for (i = 0; i < this.settings.symbols; i++) {
                 var symbol = symbolsSetArray[Math.floor(Math.random() * symbolsSetArray.length)];
                 var symbolIndex = digitsPositionArray[Math.floor(Math.random() * digitsPositionArray.length)];
 
                 passwordArray[symbolIndex] = symbol;
-
-                /* remove position from digitsPositionArray so we make sure to the have the exact number of digits in our password
-                since without this step, numbers may override other numbers */
 
                 var j = digitsPositionArray.indexOf(symbolIndex);
                 if (i != -1) {
