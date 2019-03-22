@@ -1,5 +1,5 @@
 *
-    font-family: Product Sans
+    font-family: Google Sans
     font-weight: bold
     margin: 0
     padding: 0
@@ -7,23 +7,41 @@
 
 body
     background: #1A252A
-
     #wrapper
         position: relative
-        h1
-            text-align: center
-            margin: 0 auto
-            margin-top: 20px
-            font-size: 48px
-            letter-spacing: 0.08em
-            color: rgba(#fff, 0.8)
+        header
+            display: flex
+            justify-content: center
+            margin-top: 50px
+            img
+                display: inline-block
+                width: 80px
+                height: 80px
+            .isSpin
+                transform: rotate(45deg)
+            h1
+                display: inline-block
+                position: relative
+                text-align: center
+                margin-left: 15px
+                font-size: 48px
+                letter-spacing: 0.08em
+                color: rgba(#fff, 0.8)
+                span
+                    display: block
+                    font-size: 14px
+                    letter-spacing: 2px
+                    font-weight: lighter
+                    margin-top: -4px
+                    border-top: 1px solid
+                    padding-top: 4px
 
         .password-field
             width: 340px
             height: 142px
             margin: 0 auto
-            margin-top: 40px
-            margin-bottom: 20px
+            margin-top: 80px
+            margin-bottom: 44px
             text-align: center
             input
                 width: 100%
@@ -38,7 +56,6 @@ body
                 text-align: center
                 color: rgba(#fff, 0.6)
                 outline: 0
-                user-select: initial
                 transition: border-color 100ms ease-in-out
                 &:hover
                     border-color: rgba(#fff, 0.6)
@@ -48,21 +65,19 @@ body
                 width: 100%
                 max-width: 280px
                 height: 7px
-                margin: 20px auto
-                margin-top: 24px
+                margin: 18px auto
+                margin-top: 44px
                 background: rgba(#fff,0.1)
                 border-radius: 7px
             .slider-fill
                 margin: 0
                 width: 40px
                 background: linear-gradient(180deg, #5ED015 0%, #B2FF59 100%)
-                color: red
-
             h3
                 font-size: 14px
                 color: rgba(#fff, 0.3)
                 letter-spacing: 0.1em
-                line-height: 14px
+                text-transform: uppercase
 
         .input-wrapper
             .strength-slider-wrapper
@@ -88,15 +103,12 @@ body
                         border-radius: 50px
 
                     &:nth-child(1) .fill
-                        background: linear-gradient(-90deg, #2A36B1 0%, #455EDE 100%)
-                        // width: 40%
-                    &:nth-child(2) .fill
                         background: linear-gradient(-90deg, #F50057 0%, #FF80AB 100%)
                         // width: 60%
-                    &:nth-child(3) .fill
+                    &:nth-child(2) .fill
                         background: linear-gradient(-90deg, #F5A503 0%, #FFD740 100%)
                         // width: 20%
-                    &:nth-child(4) .fill
+                    &:nth-child(3) .fill
                         background: linear-gradient(-90deg, #058ADB 0%, #40C4FF 100%)
                         // width: 80%
 
@@ -133,9 +145,8 @@ body
             display: inline-flex
             justify-content: space-between
             width: 314px
-
             h2
-                font-size: 13px
+                font-size: 14px
                 color: rgba(#fff,.3)
                 display: inline-block
                 text-align: center
@@ -144,7 +155,7 @@ body
                 line-height: 20px
                 width: 60px
         svg
-            margin: 20px auto
+            margin: 30px auto
             fill: rgba(#fff,.3)
             padding: 10px
             border-radius: 50%

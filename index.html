@@ -2,46 +2,65 @@
 <html lang="en">
 
 <head>
+    <title>Mima | Alpha</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mima | Alpha</title>
+    <meta name="author" content="Roneet Kumar">
+    <meta name="description" content="Mima is a beautifully designed Progressive Web Application to generate Strong Passwords.">
+    <meta name="keywords" content="roneet,kumar,parida,mima,pwa,progressive,web,apps,material,design,awesome,github,pages,github.io,roneetkumar.github.io,roneetparida,password,code,generator,strong code">
+    <meta name="theme-color" content="#191919" />
+    <link rel="manifest" href="functions/manifest.json">
     <link rel="stylesheet" href="styles/index.min.css">
     <script src="functions/vue.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans:500,700" rel="stylesheet">
+    <link href="assets/favicon.ico" rel="icon" sizes="192x192">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon.ico">
 </head>
 
 <body>
     <div id="wrapper">
-        <h1>Mima</h1>
-
-        <div class="password-field">
-            <input type="text" name="" value="cRaa6t$+?-Ft32JA">
+        <header>
+            <img src="assets/favicon.ico" :class="{active: isSpin}">
+            <h1>Mima<span>Strong Password</span></h1>
+        </header>
+        <div class=" password-field">
+            <input type="text" v-model="password" disabled>
             <div class="slider">
-                <div class="slider-fill" :style="{width: total + '%'}"> </div>
+                <div class="slider-fill" :style="{width: strength.score + '%'}"> </div>
             </div>
-            <h3 class="password-strength">STRONG PASSWORD</h3>
+            <h3 class="password-strength">{{strength.text}} password</h3>
         </div>
-
         <div class="input-wrapper">
             <div class="strength-slider-wrapper">
-                <div class="strength-slider" v-for="values in sliderValue">
-                    <div class="fill" :style="{width: values.val + '%'}"></div>
-                    <input type="range" min="0" max="100" v-model='values.val'>
+                <div class="strength-slider">
+                    <span class="fill" :style="{ width: lengthThumbPosition + '%' }"></span>
+                    <input type="range" min="6" :max="settings.maxLength" v-model="settings.length">
+                </div>
+                <div class="strength-slider">
+                    <span class="fill" :style="{ width: symbolsThumbPosition + '%' }"></span>
+                    <input type="range" min="0" :max="settings.maxSymbols" v-model="settings.symbols">
+                </div>
+                <div class="strength-slider">
+                    <span class="fill" :style="{ width: digitsThumbPosition + '%' }"></span>
+                    <input type="range" min="0" :max="settings.maxDigits" v-model="settings.digits">
                 </div>
             </div>
             <br><br><br><br>
             <div class="data-wrapper">
-                <h2 v-for="values in sliderValue">{{values.name}} <br> {{values.val}}</h2>
+                <h2>Length<br> {{settings.length}}</h2>
+                <h2>Symbols<br> {{settings.symbols}}</h2>
+                <h2>Digits<br> {{settings.digits}}</h2>
             </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <svg @click="copyToClipboard" @click="spin=!spin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" /></svg>
-    </div>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+        </svg>
     </div>
 </body>
-<script src="functions/index.js"></script>
 
+<script src="functions/index.js"></script>
 
 </html>
