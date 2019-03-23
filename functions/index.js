@@ -7,12 +7,14 @@ new Vue({
             maxLength: 18,
             maxDigits: 9,
             maxSymbols: 9,
-            length: 12,
+            length: 8,
             digits: 4,
-            symbols: 2,
+            symbols: 5,
             ambiguous: true,
         },
         isSpin: false,
+        colorChange: '',
+        // borders: 'border-color'
 
     },
     computed: {
@@ -124,6 +126,13 @@ new Vue({
 
     methods: {
 
+        spin() {
+            this.isSpin = !this.isSpin;
+            setTimeout(() => {
+                this.isSpin = !this.isSpin;
+            }, 400);
+
+        },
         copyToClipboard() {
             var copyElement = document.createElement("textarea");
             copyElement.style.opacity = '0';
@@ -139,16 +148,18 @@ new Vue({
             setTimeout(() => {
                 this.copied = false;
             }, 750);
+            this.colorChange = '#80f900';
         },
         // generate the password
         generatePassword() {
+            this.colorChange = 'rgba(255,255,255,0.6)';
+
             var lettersSetArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
             var symbolsSetArray = ["=", "+", "-", "^", "?", "!", "%", "&", "*", "$", "#", "^", "@", "|"];
             //var ambiguousSetArray = ["(",")","{","}","[","]","(",")","/","~",";",":",".","<",">"];
             var passwordArray = [];
             var digitsArray = [];
             var digitsPositionArray = [];
-
 
             for (var i = 0; i < this.settings.length; i++) {
                 digitsPositionArray.push(i);
