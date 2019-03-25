@@ -130,7 +130,7 @@ new Vue({
             this.isSpin = !this.isSpin;
             setTimeout(() => {
                 this.isSpin = !this.isSpin;
-            }, 400);
+            }, 350);
 
         },
         copyToClipboard() {
@@ -152,7 +152,7 @@ new Vue({
         },
         // generate the password
         generatePassword() {
-            this.colorChange = 'rgba(255,255,255,0.6)';
+            this.colorChange = '';
 
             var lettersSetArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
             var symbolsSetArray = ["=", "+", "-", "^", "?", "!", "%", "&", "*", "$", "#", "^", "@", "|"];
