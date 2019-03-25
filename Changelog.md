@@ -55,5 +55,23 @@
 6. timing fixes.
 7. finalised strong password logic.
 
+# 0.3.6 *(alpha-builds #12)*
+1. bug fixes for password strength calculation.
+2. icon animation improved i.e only the locks rotate on password generation.
+3. copy to clipboard improved.
 
+# 0.3.9 *(alpha-builds #13)*
+1. added manifest.
+2. installed service worker.
+3. pwa is done.
+4. works offline with all the assets.
 
+# 0.4.3 *(alpha-builds #13)*
+1. preparing for alpha release i.e minor tweaks.
+
+# 0.5.1 *(alpha-release)*
+1. preparing for alpha release i.e minor tweaks.
+
+# 0.5.2 *(alpha-release)*
+1. minor changes in ui and some loops added.
+2. data binding added.
