@@ -1,3 +1,8 @@
+$length: linear-gradient(-90deg, #F50057 0%, #FF80AB 100%)
+$symbol: linear-gradient(-90deg, #F5A503 0%, #FFD740 100%)
+$digit: linear-gradient(-90deg, #058ADB 0%, #40C4FF 100%)
+$slider-fill: linear-gradient(180deg, #5ED015 0%, #B2FF59 100%)
+
 *
     font-family: Google Sans
     margin: 0
@@ -50,10 +55,8 @@ body
 
         .password-field
             width: 340px
-            height: 142px
             margin: 0 auto
             margin-top: 100px
-            margin-bottom: 44px
             text-align: center
             input
                 width: 100%
@@ -75,16 +78,15 @@ body
                     background: rgba(0, 0, 0, 0.1)
             .slider, .slider-fill
                 width: 100%
-                max-width: 280px
-                height: 7px
+                max-width: 300px
+                height: 8px
                 margin: 18px auto
-                margin-top: 44px
-                background: rgba(#fff,0.1)
+                margin-top: 22px
                 border-radius: 7px
             .slider-fill
-                margin: 0
+                margin: auto
                 width: 40px
-                background: linear-gradient(180deg, #5ED015 0%, #B2FF59 100%)
+                background: $slider-fill
                 transition: all 125ms ease-in-out
             h3
                 font-size: 14px
@@ -92,77 +94,59 @@ body
                 letter-spacing: 0.1em
                 text-transform: uppercase
 
-        .input-wrapper
+        .strength-slider-wrapper
             text-align: initial
-            .strength-slider-wrapper
-                width: 300px
-                height: 260px
-                justify-content: space-between
-                display: inline-flex
-                flex-flow: column
+            width: 300px
+            margin: 60px auto
+
+            .strength-slider
+                margin-bottom: 60px
+                height: 8px
+                border-radius: 50px
                 position: relative
-                left: 50%
-                bottom: -13px
-                transform: translateX(-50%) rotate(-90deg)
-
-                .strength-slider
+                .fill
                     height: 8px
+                    position: absolute
+                    left: 0
+                    z-index: 1
                     border-radius: 50px
-                    position: relative
-                    .fill
+
+                &:nth-child(2) .fill
+                    background: $length
+                &:nth-child(4) .fill
+                    background: $symbol
+                &:nth-child(6) .fill
+                    background: $digit
+
+                input[type='range']
+                    -webkit-appearance: none
+                    width: 300px
+                    border-radius: 8px
+                    position: absolute
+                    background: rgba(#fff,0.1)
+                    &::-webkit-slider-runnable-track
+                        width: 100%
                         height: 8px
-                        position: absolute
-                        left: 0
-                        z-index: 1
-                        border-radius: 50px
-
-                    &:nth-child(1) .fill
-                        background: linear-gradient(-90deg, #F50057 0%, #FF80AB 100%)
-                        // width: 60%
-                    &:nth-child(2) .fill
-                        background: linear-gradient(-90deg, #F5A503 0%, #FFD740 100%)
-                        // width: 20%
-                    &:nth-child(3) .fill
-                        background: linear-gradient(-90deg, #058ADB 0%, #40C4FF 100%)
-                        // width: 80%
-
-                    input[type='range']
-                        -webkit-appearance: none
-                        width: 300px
+                        border: none
                         border-radius: 8px
-                        position: absolute
-                        background: rgba(#fff,0.1)
-                        &::-webkit-slider-runnable-track
-                            width: 100%
-                            height: 8px
-                            border: none
-                            border-radius: 8px
-                        &::-webkit-slider-thumb
-                            -webkit-appearance: none
-                            border: none
-                            width: 20px
-                            height: 20px
-                            background: #fff
-                            border-radius: 50%
-                            position: relative
-                            top: 50%
-                            transform: translateY(-50%)
-                            transition: all 125ms ease-in-out
-                            z-index: 2
-                            box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),0 1px 8px 0 rgba(0, 0, 0, 0.12),0 3px 3px -2px rgba(0, 0, 0, 0.4)
-                            cursor: pointer
-                            &:hover
-                                transform: translateY(-50%) scale(1.2)
-                        &:focus
-                            outline: none
-
-        .data-wrapper
-            left: 50%
-            position: relative
-            transform: translate(-50%)
-            display: inline-flex
-            justify-content: space-between
-            width: 314px
+                    &::-webkit-slider-thumb
+                        -webkit-appearance: none
+                        border: none
+                        width: 20px
+                        height: 20px
+                        background: #fff
+                        border-radius: 50%
+                        position: relative
+                        top: 50%
+                        transform: translateY(-50%)
+                        transition: all 125ms ease-in-out
+                        z-index: 2
+                        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),0 1px 8px 0 rgba(0, 0, 0, 0.12),0 3px 3px -2px rgba(0, 0, 0, 0.4)
+                        cursor: pointer
+                        &:hover
+                            transform: translateY(-50%) scale(1.2)
+                    &:focus
+                        outline: none
             h2
                 font-size: 14px
                 color: rgba(#fff,.3)
@@ -170,17 +154,20 @@ body
                 text-align: center
                 font-weight: bold
                 letter-spacing: 0.05em
-                line-height: 20px
-                width: 60px
-        svg
-            margin: 30px 20px
-            fill: rgba(#fff,.3)
-            padding: 10px
-            border-radius: 50%
-            transition: background 152ms ease-in-out, transform 180ms ease
-            cursor: pointer
-            &:hover
-                background: rgba(#fff,.1)
-                transform: scale(1.2)
-            &:active
-                transform: scale(1)
+                text-align: left
+                margin-bottom: 22px
+
+        .bot
+            margin-bottom: 40px
+            svg
+                margin: 0 20px
+                fill: rgba(#fff,.3)
+                padding: 10px
+                border-radius: 50%
+                transition: background 152ms ease-in-out, transform 180ms ease
+                cursor: pointer
+                &:hover
+                    background: rgba(#fff,.1)
+                    transform: scale(1.2)
+                &:active
+                    transform: scale(1)
